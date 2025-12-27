@@ -16,7 +16,7 @@ function [alpha] = atikv2(alpha0, bhat, S, eta, noiseLevel)
     df = matlabFunction(df_sym, 'Vars', alpha_sym);
     
     % root finding using Newton's method
-    [alpha] = newtons_method(f, df, alpha0);
+    [alpha] = nm(f, df, alpha0);
 
     if alpha >= 10e15
         alpha = 0;
@@ -24,4 +24,5 @@ function [alpha] = atikv2(alpha0, bhat, S, eta, noiseLevel)
         alpha = 1/alpha;
     end
     
+
 end
